@@ -20,6 +20,8 @@ Cloudflare Pages sirve la página y el servidor, y D1 guarda los datos. El plan 
 
 ## 3. Conectar la base y las variables (2 min)
 
+> Si usás el `wrangler.toml` del repo, poné ahí el `database_id` de tu base (lo ves en D1 → tu base) y la `URL_PUBLICA`: Cloudflare toma la configuración de ese archivo y este paso no hace falta.
+
 En el proyecto de Pages: **Settings → Bindings → Add → D1 database**:
 
 - **Variable name**: `DB` (exactamente así)

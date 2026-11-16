@@ -4,7 +4,7 @@
 
 Puntual es una agenda online para peluquerías, consultorios, estudios, profes particulares y cualquier trabajo con turnos. El profesional configura sus servicios y horarios y comparte un link. Sus clientes eligen día y hora desde el celular, reciben un comprobante y pueden cambiar o cancelar el turno solos. El profesional ve todo en un panel con recordatorios por WhatsApp, señas, lista de espera y estadísticas.
 
-**[Ver la demo →](https://puntual.pages.dev)**: en la portada, "Probar el panel con datos de ejemplo" abre una peluquería con seis meses de historia, sin registrarse.
+**[Ver la demo →](https://puntual-asy.pages.dev)**: en la portada, "Probar el panel con datos de ejemplo" abre una peluquería con seis meses de historia, sin registrarse.
 
 | Página de reservas (celular) | Comprobante |
 |---|---|

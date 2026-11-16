@@ -1,9 +1,12 @@
-# Opcional: solo si preferís publicar con la herramienta wrangler en lugar de la integración con GitHub.
+# Configuración de Cloudflare Pages (se lee en cada publicación).
 name = "puntual"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-11-01"
 
+[vars]
+URL_PUBLICA = "https://puntual-asy.pages.dev"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "puntual"
-database_id = "COMPLETAR-CON-EL-ID-DE-TU-BASE"
+database_id = "83b012c4-69d0-4028-87d8-826675b4a3a8"
