@@ -1,0 +1,76 @@
+/* Portada pública de Puntual. */
+
+.barra { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 72rem; margin: 0 auto; padding: 1.1rem clamp(1rem, 4vw, 2rem); }
+.logo { display: inline-flex; align-items: center; gap: 0.55rem; font: 600 1.25rem var(--titulos); color: var(--tinta); text-decoration: none; letter-spacing: -0.02em; }
+.barra nav { display: flex; align-items: center; gap: 0.25rem 1.25rem; }
+.barra nav a:not(.boton) { color: var(--gris); text-decoration: none; font-weight: 500; }
+.barra nav a:not(.boton):hover { color: var(--tinta); }
+
+main { max-width: 72rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem); }
+main h2 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); letter-spacing: -0.025em; }
+
+.heroe { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 3rem; align-items: center; padding: clamp(2rem, 7vh, 5rem) 0 clamp(3rem, 8vh, 6rem); }
+.heroe h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); line-height: 1.02; letter-spacing: -0.04em; max-width: 14ch; }
+.heroe__bajada { margin-top: 1.25rem; font-size: 1.1875rem; line-height: 1.55; color: #3b433e; max-width: 34rem; }
+.heroe__acciones { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.heroe__acciones .boton { min-height: 3rem; padding-inline: 1.35rem; font-size: 1.0625rem; }
+.heroe__nota { margin-top: 1rem; color: var(--gris); font-size: 0.9375rem; max-width: 30rem; }
+
+.heroe__muestra { position: relative; display: grid; justify-items: center; padding: 1rem 0 2rem; }
+.muestra-horas { width: min(20rem, 90%); padding: 1rem 1.1rem 1.15rem; background: var(--hoja); border-radius: 14px; box-shadow: var(--sombra); transform: rotate(-4deg) translate(-12%, 0); }
+.muestra-horas__titulo { font: 600 0.9375rem var(--titulos); margin-bottom: 0.75rem; }
+.muestra-horas__lista { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
+.muestra-horas__lista span { display: grid; place-items: center; min-height: 2.5rem; border: 1px solid var(--linea); border-radius: var(--radio-chico); font: 600 1rem var(--titulos); font-variant-numeric: tabular-nums; }
+.muestra-horas__lista .elegida { background: var(--marca); border-color: var(--marca); color: #fff; }
+.muestra-ticket { width: min(21rem, 92%); margin-top: -3.25rem; transform: rotate(3deg) translate(10%, 0); animation: llegar 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both; }
+@keyframes llegar { from { opacity: 0; transform: rotate(8deg) translate(16%, 24px); } }
+.mini-avatar { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--marca); color: #fff; font: 600 0.6875rem var(--titulos); }
+.muestra-ok { color: var(--marca); font-weight: 600; }
+
+.como { padding: 3.5rem 0; border-top: 1px solid var(--linea); }
+.pasos { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: paso; }
+.pasos li { counter-increment: paso; display: grid; gap: 0.5rem; align-content: start; }
+.pasos li::before { content: counter(paso); font: 600 3rem/1 var(--titulos); color: var(--marca); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.pasos h3 { font-size: 1.1875rem; }
+.pasos p { color: var(--gris); line-height: 1.55; }
+.pasos code { font: 500 0.9375rem var(--texto); color: var(--tinta); background: var(--marca-velo); padding: 0.05rem 0.35rem; border-radius: 4px; }
+
+.vista-panel { padding: 3.5rem 0; display: grid; gap: 2rem; }
+.vista-panel__texto { max-width: 36rem; display: grid; gap: 0.75rem; }
+.vista-panel__texto p { color: var(--gris); font-size: 1.0625rem; line-height: 1.55; }
+.vista-panel__imagen { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--linea); box-shadow: 0 30px 80px -30px rgb(24 32 28 / 0.35); background: var(--hoja); }
+
+.problemas { padding: 3.5rem 0; border-top: 1px solid var(--linea); }
+.problemas__lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 2rem 0 0; }
+.problemas__lista div { padding: 1.25rem 2rem 1.25rem 0; border-top: 1px solid var(--linea-suave); }
+.problemas__lista dt { font: 600 1.125rem var(--titulos); margin-bottom: 0.35rem; }
+.problemas__lista dd { margin: 0; color: var(--gris); line-height: 1.55; max-width: 32rem; }
+
+.preguntas { padding: 3.5rem 0; border-top: 1px solid var(--linea); max-width: 46rem; }
+.preguntas h2 { margin-bottom: 1.5rem; }
+.preguntas details { border-top: 1px solid var(--linea-suave); }
+.preguntas details:last-child { border-bottom: 1px solid var(--linea-suave); }
+.preguntas summary { padding: 1rem 0; font-weight: 600; font-size: 1.0625rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.preguntas summary::-webkit-details-marker { display: none; }
+.preguntas summary::after { content: '+'; font: 500 1.375rem/1 var(--titulos); color: var(--gris); }
+.preguntas details[open] summary::after { content: '−'; }
+.preguntas details p { padding: 0 0 1.1rem; color: var(--gris); line-height: 1.6; }
+
+.final { margin: 2rem 0 4rem; padding: clamp(2rem, 6vw, 3.5rem); border-radius: 18px; background: var(--marca); color: #fff; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.final .boton--primario { background: #fff; color: var(--marca-oscura); }
+.final .boton--primario:hover { background: var(--marca-velo); color: var(--marca-oscura); }
+
+.pie { max-width: 72rem; margin: 0 auto; padding: 1.5rem clamp(1rem, 4vw, 2rem) 2.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; color: var(--gris); font-size: 0.875rem; border-top: 1px solid var(--linea); }
+.pie a { color: var(--gris); }
+
+@media (max-width: 56rem) {
+  .heroe { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .pasos, .problemas__lista { grid-template-columns: minmax(0, 1fr); }
+  .barra nav a:not(.boton) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .muestra-ticket { animation: none; } }
+@media (max-width: 56rem) {
+  .heroe__muestra { overflow: hidden; padding: 1rem 0 2.5rem; margin: 0 calc(-1 * clamp(1rem, 4vw, 2rem)); }
+  .muestra-horas { transform: rotate(-3deg) translate(-6%, 0); width: min(18rem, 80%); }
+  .muestra-ticket { transform: rotate(2.5deg) translate(6%, 0); width: min(19rem, 84%); }
+}

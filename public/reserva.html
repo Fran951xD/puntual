@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Reservar turno</title>
+  <meta name="description" content="Elegí el servicio, el día y la hora, y reservá tu turno en segundos.">
+  <meta name="theme-color" content="#f3f4f0">
+  <link rel="icon" href="/img/icono.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preload" href="/fonts/inter-display-semibold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/reserva.css">
+  <script type="module" src="/js/reserva.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <div class="reserva" id="app" aria-busy="true">
+    <div class="reserva__carga" aria-hidden="true">
+      <div class="esqueleto esqueleto--avatar"></div>
+      <div class="esqueleto esqueleto--linea"></div>
+      <div class="esqueleto esqueleto--bloque"></div>
+    </div>
+  </div>
+  <div id="avisos" aria-live="polite"></div>
+  <noscript><p>Para reservar necesitás tener JavaScript activado.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Opcional: solo si preferís publicar con la herramienta wrangler en lugar de la integración con GitHub.
+name = "puntual"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "puntual"
+database_id = "COMPLETAR-CON-EL-ID-DE-TU-BASE"

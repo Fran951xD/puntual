@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Puntual: turnos online para profesionales independientes</title>
+  <meta name="description" content="Tus clientes eligen el horario y reservan solos. Recordatorios, seña, lista de espera y estadísticas. Gratis, sin instalar nada.">
+  <meta name="theme-color" content="#f3f4f0">
+  <meta property="og:title" content="Puntual: tus clientes sacan turno solos">
+  <meta property="og:description" content="Agenda online con recordatorios, seña y lista de espera para peluquerías, consultorios, estudios y profesores.">
+  <meta property="og:image" content="/img/panel.png">
+  <link rel="icon" href="/img/icono.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preload" href="/fonts/inter-display-semibold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/portada.css">
+  <script type="module" src="/js/portada.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="barra">
+    <a class="logo" href="/"><img src="/img/icono.svg" alt="" width="28" height="28">Puntual</a>
+    <nav aria-label="Principal">
+      <a href="#como">Cómo funciona</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="boton boton--secundario boton--chico" href="/ingresar">Ingresar</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="heroe">
+      <div class="heroe__texto">
+        <h1>Tus clientes sacan turno solos. Vos atendés.</h1>
+        <p class="heroe__bajada">Una página con tus horarios libres para compartir en Instagram o WhatsApp. Reservan en 30 segundos, reciben su comprobante y un recordatorio, y vos dejás de coordinar mensaje por mensaje.</p>
+        <div class="heroe__acciones">
+          <a class="boton boton--primario" href="/registro">Crear mi agenda gratis</a>
+          <button type="button" class="boton boton--secundario" data-demo>Probar el panel con datos de ejemplo</button>
+        </div>
+        <p class="heroe__nota">Sin tarjeta, sin instalar nada. Para peluquerías, consultorios, estudios, profes y cualquier trabajo con turnos.</p>
+      </div>
+
+      <div class="heroe__muestra" aria-hidden="true">
+        <div class="muestra-horas">
+          <p class="muestra-horas__titulo">Jueves 19 de noviembre</p>
+          <div class="muestra-horas__lista">
+            <span>09:30</span><span>10:15</span><span class="elegida">11:00</span><span>11:45</span><span>15:00</span><span>16:30</span>
+          </div>
+        </div>
+        <article class="ticket muestra-ticket">
+          <div class="ticket__cabecera"><span class="ticket__marca"><span class="mini-avatar">EL</span>Estudio Lumen</span><span class="muestra-ok">Confirmado</span></div>
+          <div class="ticket__cuerpo">
+            <p class="ticket__dia">Jueves 19 de noviembre</p>
+            <p class="ticket__hora">11:00</p>
+            <p class="ticket__servicio">Corte y barba, 60 min</p>
+          </div>
+          <div class="ticket__troquel"></div>
+          <div class="ticket__pie">
+            <div class="ticket__fila"><span>A nombre de</span><strong>Martín Gómez</strong></div>
+            <div class="ticket__fila"><span>Recordatorio</span><strong>Miércoles 18, 10:00</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="como" id="como" aria-labelledby="como-titulo">
+      <h2 id="como-titulo">Listo en tres pasos</h2>
+      <ol class="pasos">
+        <li><h3>Cargá tus servicios y horarios</h3><p>Duración, precio y, si querés, una seña. Horario partido, feriados y vacaciones incluidos.</p></li>
+        <li><h3>Compartí tu link</h3><p><code>puntual.app/tu-negocio</code> en tu bio de Instagram, tu estado de WhatsApp o Google Maps.</p></li>
+        <li><h3>Recibí turnos confirmados</h3><p>Aparecen en tu agenda al instante. Tus clientes pueden cambiarlos o cancelarlos solos, dentro de tus reglas.</p></li>
+      </ol>
+    </section>
+
+    <section class="vista-panel" aria-labelledby="panel-titulo">
+      <div class="vista-panel__texto">
+        <h2 id="panel-titulo">Todo tu día en una pantalla</h2>
+        <p>Quién viene ahora, a quién recordarle el turno de mañana, qué señas faltan y quién está esperando que se libere un lugar.</p>
+      </div>
+      <img class="vista-panel__imagen" src="/img/panel.png" alt="Pantalla Hoy del panel: el turno en curso, la lista del día y los recordatorios para mañana" width="1440" height="1000" loading="lazy">
+    </section>
+
+    <section class="problemas" aria-labelledby="problemas-titulo">
+      <h2 id="problemas-titulo">Lo que deja de pasarte</h2>
+      <dl class="problemas__lista">
+        <div><dt>Gente que no viene</dt><dd>Recordatorio por mail el día anterior y un botón para mandarlo por WhatsApp con un toque. Si cancelan, el horario vuelve a estar libre.</dd></div>
+        <div><dt>Horas respondiendo mensajes</dt><dd>"¿Tenés algo el jueves?" se responde solo: tu página muestra los horarios libres reales, actualizados al segundo.</dd></div>
+        <div><dt>Reservas que no se pagan</dt><dd>Pedí seña por alias o Mercado Pago. Si no la pagan en el plazo que elegiste, el turno se libera automáticamente.</dd></div>
+        <div><dt>Huecos en la agenda</dt><dd>Cuando un día se llena, tus clientes se anotan en la lista de espera y les avisamos apenas alguien cancela.</dd></div>
+        <div><dt>No saber cómo te va</dt><dd>Cuánto cobraste, quiénes faltan, qué servicio se pide más y en qué horarios conviene abrir.</dd></div>
+        <div><dt>Dos personas en el mismo horario</dt><dd>Imposible: cada reserva se verifica en el momento de confirmarse, aunque dos personas toquen el mismo botón a la vez.</dd></div>
+      </dl>
+    </section>
+
+    <section class="preguntas" id="preguntas" aria-labelledby="preguntas-titulo">
+      <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
+      <details><summary>¿Cuánto cuesta?</summary><p>Nada. Puntual es un proyecto de código abierto: podés usarlo gratis o instalarlo en tu propio servidor.</p></details>
+      <details><summary>¿Mis clientes tienen que crearse una cuenta?</summary><p>No. Ponen nombre y celular y listo. Reciben un link para ver, cambiar o cancelar su turno.</p></details>
+      <details><summary>¿Funciona en el celular?</summary><p>Sí, tanto la página de reservas como tu panel. Podés agregar el panel a la pantalla de inicio como una app.</p></details>
+      <details><summary>¿Puedo anotar turnos que me piden por teléfono?</summary><p>Sí. Desde la agenda tocás el horario y cargás el turno. Si hace falta, podés anotarlo fuera de horario.</p></details>
+      <details><summary>¿Qué pasa con mis datos?</summary><p>Son tuyos: los podés descargar en Excel cuando quieras o borrar tu cuenta con todo adentro. Las contraseñas se guardan cifradas y nunca mostramos los datos de tus clientes en tu página pública.</p></details>
+    </section>
+
+    <section class="final">
+      <h2>Tu próxima semana, ya ordenada</h2>
+      <a class="boton boton--primario" href="/registro">Crear mi agenda gratis</a>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Puntual. Hecho en Argentina.</p>
+    <p><a href="https://github.com/Fran951xD/puntual">Código en GitHub</a></p>
+  </footer>
+  <div id="avisos" aria-live="polite"></div>
+</body>
+</html>
