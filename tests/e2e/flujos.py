@@ -157,6 +157,20 @@ async def main():
         await demo.click('.nav a[href="/panel/hoy"]') if await demo.locator('.nav a[href="/panel/hoy"]').count() else None
         print('ok  demo desde la portada con estadísticas y detalle al pasar el mouse')
 
+        # Regresión: la actualización automática de "Hoy" no puede pisar otra sección.
+        reloj = await (await nav.new_context(viewport={'width': 1366, 'height': 900})).new_page()
+        await reloj.clock.install()
+        await reloj.goto(URL + '/ingresar')
+        await reloj.click('text=Probar con una peluquería de ejemplo')
+        await reloj.wait_for_selector('.hoy')
+        await reloj.clock.run_for(61000)
+        await reloj.click('.nav a[href="/panel/estadisticas"]')
+        await reloj.wait_for_selector('.kpis')
+        await reloj.clock.run_for(125000)
+        await reloj.wait_for_timeout(1000)
+        await expect(reloj.locator('main h1')).to_have_text('Estadísticas')
+        print('ok  la actualización automática de Hoy no pisa otras secciones')
+
         # Seguridad: sin sesión no hay panel ni API
         anon = await (await nav.new_context()).new_page()
         await anon.goto(URL + '/panel')

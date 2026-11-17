@@ -4,9 +4,18 @@ import { sesion, enlace, urlPublica, marcarAviso } from './app.js';
 import { verTurno, nuevoTurno } from './turno.js';
 
 export async function vistaHoy(raiz) {
+  // Una sola vista viva: el temporizador y las recargas se cortan al salir de "Hoy".
+  let viva = true;
+  const recargar = () => (viva ? dibujar(raiz, recargar, () => viva) : null);
+  await recargar();
+  const reloj = setInterval(() => { if (!document.querySelector('dialog[open]')) recargar(); }, 60000);
+  return () => { viva = false; clearInterval(reloj); };
+}
+
+async function dibujar(raiz, recargar, sigueViva) {
   const [d, { servicios }] = await Promise.all([api('/api/hoy'), api('/api/servicios')]);
+  if (!sigueViva()) return; // el usuario ya se fue a otra sección mientras cargaba
   const ahora = d.ahora;
-  const recargar = () => vistaHoy(raiz);
   const activos = d.hoy.filter((t) => t.estado !== 'cancelado');
   const siguiente = activos.find((t) => t.fin > ahora.minutos && ['confirmado', 'pendiente_sena'].includes(t.estado));
   const enCurso = siguiente && siguiente.inicio <= ahora.minutos;
@@ -114,10 +123,6 @@ export async function vistaHoy(raiz) {
     el('div', { class: 'hoy' },
       el('div', { class: 'hoy__columna' }, configuracion, tarjeta, lista),
       el('div', { class: 'hoy__columna' }, recordatorios, senas, espera, semana)));
-
-  // Se actualiza solo cada minuto (la hora actual y lo que entra por la web).
-  const reloj = setInterval(() => { if (!document.querySelector('dialog[open]')) vistaHoy(raiz); }, 60000);
-  return () => clearInterval(reloj);
 }
 
 function cifra(valor, etiqueta) {
