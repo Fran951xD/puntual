@@ -13,7 +13,11 @@ const TIPOS = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
 /** Imita el binding ASSETS de Cloudflare leyendo archivos de public/. */
 export const assetsLocales = {
   async fetch(pedido) {
-    const ruta = normalize(decodeURIComponent(new URL(pedido.url).pathname)).replace(/^(\.\.[/\\])+/, '');
+    let ruta = normalize(decodeURIComponent(new URL(pedido.url).pathname)).replace(/^(\.\.[/\\])+/, '');
+    // Igual que Cloudflare Pages: /index.html y /x.html redirigen a la versión sin extensión.
+    if (/\.html$/.test(ruta)) return new Response(null, { status: 308, headers: { location: ruta.replace(/(index)?\.html$/, '') } });
+    if (ruta === '/' || ruta === '\\') ruta = '/index.html';
+    else if (!extname(ruta)) ruta += '.html';
     const archivo = join(RAIZ, ruta);
     if (!archivo.startsWith(RAIZ)) return new Response('Prohibido', { status: 403 });
     try {

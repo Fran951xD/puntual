@@ -856,14 +856,15 @@ const SEGURIDAD = {
 };
 
 async function estatico(pedido, env, url) {
-  let ruta = url.pathname;
-  const partes = ruta.split('/').filter(Boolean);
-  if (ruta === '/' || ruta === '/index.html') ruta = '/index.html';
-  else if (partes[0] === 'panel' || ruta === '/ingresar' || ruta === '/registro') ruta = '/panel.html';
-  else if (partes[0] === 't' && partes.length === 2) ruta = '/reserva.html';
-  else if (partes.length === 1 && !partes[0].includes('.')) ruta = '/reserva.html'; // /mi-negocio → página de reservas
-  const r = await env.ASSETS.fetch(new Request(new URL(ruta, url), pedido));
-  if (!ruta.endsWith('.html')) return r;
+  // Cloudflare Pages sirve las páginas sin ".html" (y redirige /index.html → /), así que las pedimos así.
+  const partes = url.pathname.split('/').filter(Boolean);
+  let pagina = null;
+  if (url.pathname === '/' || url.pathname === '/index.html') pagina = '/';
+  else if (partes[0] === 'panel' || url.pathname === '/ingresar' || url.pathname === '/registro' || url.pathname === '/panel.html') pagina = '/panel';
+  else if ((partes[0] === 't' && partes.length === 2) || url.pathname === '/reserva.html') pagina = '/reserva';
+  else if (partes.length === 1 && !partes[0].includes('.')) pagina = '/reserva'; // /mi-negocio → página de reservas
+  if (!pagina) return env.ASSETS.fetch(pedido);
+  const r = await env.ASSETS.fetch(new Request(new URL(pagina, url), { method: 'GET', headers: pedido.headers }));
   const h = new Headers(r.headers);
   for (const [k, v] of Object.entries(SEGURIDAD)) h.set(k, v);
   h.set('cache-control', 'no-cache');

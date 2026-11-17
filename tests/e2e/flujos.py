@@ -67,7 +67,11 @@ async def main():
         # ---------------- Un cliente reserva desde el celular
         cel = await (await nav.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)).new_page()
         vigilar(cel)
-        await cel.goto(f'{URL}/{slug}')
+        # Un día con al menos 3 días de margen (para que se pueda cambiar y cancelar a cualquier hora que corra la prueba).
+        dia = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-3))).date() + datetime.timedelta(days=3)
+        while dia.weekday() == 6:
+            dia += datetime.timedelta(days=1)
+        await cel.goto(f'{URL}/{slug}?fecha={dia.isoformat()}')
         await expect(cel.locator('.perfil__nombre')).to_have_text('Kinesiología Ana Paz')
         assert await cel.evaluate("document.documentElement.dataset.color") == 'oceano'
         await cel.wait_for_selector('.hora')  # un solo servicio: va directo a elegir horario
@@ -111,7 +115,7 @@ async def main():
 
         # Doble reserva imposible: el mismo horario ya no aparece
         cel2 = await (await nav.new_context(viewport={'width': 390, 'height': 844})).new_page()
-        await cel2.goto(f'{URL}/{slug}')
+        await cel2.goto(f'{URL}/{slug}?fecha={dia.isoformat()}')
         await cel2.wait_for_selector('.hora')
         horas = await cel2.locator('.hora').all_inner_texts()
         assert nueva not in horas, 'el horario ocupado sigue apareciendo'

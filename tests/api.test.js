@@ -32,7 +32,7 @@ async function preparar() {
 }
 
 const hoyAR = () => A.ahoraEn().fecha;
-const proximo = (dia, desde = hoyAR()) => { let f = A.sumarDias(desde, 1); while (A.diaSemana(f) !== dia) f = A.sumarDias(f, 1); return f; };
+const proximo = (dia, desde = hoyAR()) => { let f = A.sumarDias(desde, 2); while (A.diaSemana(f) !== dia) f = A.sumarDias(f, 1); return f; };
 
 test('registro, sesión e ingreso', async () => {
   const { env, pro, slug } = await preparar();
